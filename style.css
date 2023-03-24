@@ -1,0 +1,188 @@
+
+/**
+* Quick and dirty reset & wrapper set-up
+*/
+* { padding: 0; margin: 0; box-sizing: border-box; }
+html, body { height: 100%; font-family: uniform; }
+.wrapper {
+	position: relative;
+	width: 100%;
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+/**
+* Header
+*/
+#primary-header {
+	background: #eee;
+	padding: 35px 0px;
+}		
+	.logo {
+		height: 45px;
+		display: block;
+	}
+
+
+/** 
+* Primary nav
+*/
+#nav-wrapper {
+	background-color: #222e42;
+	height: 125px;
+}
+.fade-out {
+	opacity: 0;
+}
+.fade-in {
+	opacity: 1;
+}
+#nav-primary {
+	position: relative;
+	width: 100%;
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+	#nav-primary ul {
+		position: relative;
+		display: flex;
+	}
+	#bg {
+		position: absolute;
+		width: 0;
+		height: 100%;
+		background: #dd466c;
+		left: 15px;
+		top: 50%;
+		transform: translateY(-50%);
+		transition: 0.3s;
+	}
+		#nav-primary li {
+			list-style: none;
+			flex-grow: 1;
+			text-align: center;
+			z-index: 1;
+			height: 125px;
+			font-size: 16px;
+		}
+			#nav-primary a {
+				display: block;
+				height: 100%;
+				text-decoration: none;
+				color: #fff;
+				position: relative;
+				overflow: hidden;
+			}
+		#nav-primary .feh-icon-bg { 
+			transform: translate(-50%, -50%) scale(0);
+			transition: all 0.4s ease;
+			content: "";
+			position: absolute;
+			height: 100px;
+			left: 50%;
+			z-index: -1;
+			top: 45%;
+			opacity: 0.1;
+			font-size: 100px;
+		}
+			li.hover .feh-icon {
+				animation-name: navIconHoverIn;
+				animation-timing-function: ease-in-out;
+				animation-fill-mode: forwards;
+				animation-duration: 275ms;
+				animation-delay: 155ms;
+			}
+			li.no-hover .feh-icon {
+				animation-name: navIconHoverOut;
+				animation-timing-function: ease-in-out;
+				animation-fill-mode: backwards;
+				animation-duration: 225ms;
+				animation-delay: 100ms;
+			}
+		li.hover .feh-icon-bg {
+			animation-name: navIconBGHoverIn;
+			animation-timing-function: ease-in-out;
+			animation-fill-mode: forwards;
+			animation-duration: 225ms;
+			animation-delay: 175ms;
+		}
+		li.no-hover .feh-icon-bg {
+			animation-name: navIconBGHoverOut;
+			animation-timing-function: ease-in-out;
+			animation-fill-mode: backwards;
+			animation-duration: 150ms;
+			animation-delay: 125ms;
+		}
+
+		.li-name {
+			transition: all 0.3s ease;
+			transform: translateX(-50%);
+			left: 50%;
+			position: absolute;
+			bottom: 30px;
+			width: 100%;
+		}
+		#nav-primary .feh-icon {
+			color: #ffffff52;
+			transition: all 0.3s ease; 
+			display: block;
+			font-size: 32px;
+			position: absolute;
+			transform: translateX(-50%);
+			top: 30px;
+			left: 50%;
+		}	
+		#nav-primary li:hover span {
+			font-size: 18px;
+		}
+
+/**
+* Keyframes animations
+*/
+@keyframes navIconBGHoverIn { 
+	0% {
+		transform: translate(-50%, -50%) scale(0)
+	}
+	100% {
+		transform: translate(-50%, -50%) scale(2) rotate(45deg)
+	}
+}
+
+@keyframes navIconBGHoverOut { 
+	0% {
+		transform: translate(-50%, -50%) scale(2) rotate(45deg)
+	}
+	100% {
+		transform: translate(-50%, -50%) scale(0) rotate(0deg)
+	}
+}
+
+
+@keyframes navIconHoverIn {
+	0% {
+		top: 30px;
+	}
+	50% {
+		border: 2px solid red;
+		top: -50px;
+	}
+	100% {
+		top: 30px;
+		color: #fff;
+	}
+}
+
+@keyframes navIconHoverOut {
+	0% {
+		top: 30px;
+		color: #fff;
+	}
+	50% {
+		color: #fff;
+	}
+	100% {
+		
+	}
+}
