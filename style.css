@@ -55,8 +55,7 @@ html, body { height: 100%; font-family: uniform; }
 		height: 100%;
 		background: #dd466c;
 		left: 15px;
-		top: 50%;
-		transform: translateY(-50%);
+		top: 0;
 		transition: 0.3s;
 	}
 		#nav-primary li {
