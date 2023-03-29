@@ -32,12 +32,6 @@ html, body { height: 100%; font-family: uniform; }
 	background-color: #222e42;
 	height: 125px;
 }
-.fade-out {
-	opacity: 0;
-}
-.fade-in {
-	opacity: 1;
-}
 #nav-primary {
 	position: relative;
 	width: 100%;
@@ -136,6 +130,13 @@ html, body { height: 100%; font-family: uniform; }
 		#nav-primary li:hover span {
 			font-size: 18px;
 		}
+
+.fade-out {
+	opacity: 0;
+}
+.fade-in {
+	opacity: 1;
+}
 
 /**
 * Keyframes animations
