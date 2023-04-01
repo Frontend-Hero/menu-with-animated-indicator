@@ -118,7 +118,7 @@ html, body { height: 100%; font-family: uniform; }
 			width: 100%;
 		}
 		#nav-primary .feh-icon {
-			color: #ffffff52;
+            opacity: 0.2;
 			transition: all 0.3s ease; 
 			display: block;
 			font-size: 32px;
