@@ -12,18 +12,6 @@ html, body { height: 100%; font-family: uniform; }
 	padding: 0 15px;
 }
 
-/**
-* Header
-*/
-#primary-header {
-	background: #eee;
-	padding: 35px 0px;
-}		
-	.logo {
-		height: 45px;
-		display: block;
-	}
-
 
 /** 
 * Primary nav
