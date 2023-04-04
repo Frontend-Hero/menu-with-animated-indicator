@@ -131,19 +131,23 @@ html, body { height: 100%; font-family: uniform; }
 */
 @keyframes navIconBGHoverIn { 
 	0% {
-		transform: translate(-50%, -50%) scale(0)
+		transform: translate(-50%, -50%) scale(0);
+		opacity: 0;
 	}
 	100% {
-		transform: translate(-50%, -50%) scale(2) rotate(45deg)
+		transform: translate(-50%, -50%) scale(2) rotate(45deg);
+		opacity: 0.2;
 	}
 }
 
 @keyframes navIconBGHoverOut { 
 	0% {
-		transform: translate(-50%, -50%) scale(2) rotate(45deg)
+		transform: translate(-50%, -50%) scale(2) rotate(45deg);
+		opacity: 0.2;
 	}
 	100% {
-		transform: translate(-50%, -50%) scale(0) rotate(0deg)
+		transform: translate(-50%, -50%) scale(0) rotate(0deg);
+		opacity: 0;
 	}
 }
 
