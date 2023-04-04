@@ -68,28 +68,28 @@ html, body { height: 100%; font-family: uniform; }
 			opacity: 0.1;
 			font-size: 100px;
 		}
-			li.hover .feh-icon {
+			#nav-primary li:hover .feh-icon {
 				animation-name: navIconHoverIn;
 				animation-timing-function: ease-in-out;
 				animation-fill-mode: forwards;
 				animation-duration: 275ms;
 				animation-delay: 155ms;
 			}
-			li.no-hover .feh-icon {
+			 #nav-primaryli:not(:hover) .feh-icon {
 				animation-name: navIconHoverOut;
 				animation-timing-function: ease-in-out;
 				animation-fill-mode: backwards;
 				animation-duration: 225ms;
 				animation-delay: 100ms;
 			}
-		li.hover .feh-icon-bg {
+		#nav-primary li:hover .feh-icon-bg {
 			animation-name: navIconBGHoverIn;
 			animation-timing-function: ease-in-out;
 			animation-fill-mode: forwards;
 			animation-duration: 225ms;
 			animation-delay: 175ms;
 		}
-		li.no-hover .feh-icon-bg {
+		#nav-primary li:not(:hover) .feh-icon-bg {
 			animation-name: navIconBGHoverOut;
 			animation-timing-function: ease-in-out;
 			animation-fill-mode: backwards;
