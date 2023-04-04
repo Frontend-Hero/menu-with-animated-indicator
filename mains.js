@@ -1,78 +1,90 @@
 
-	// Get the sliding indicator element
-	const activeListItem = document.getElementById('indicator');
+/** 
+* Declare variables
+*/
+const activeListItem = document.getElementById('indicator');
+const navPrimary = document.getElementById('nav-primary');
+const listItems = document.querySelectorAll('#nav-primary li');
+let activeIndex = null;
 
-	// Get the navigation container element
-	const navPrimary = document.getElementById('nav-primary');
+/** 
+* Define indicator() function to update activeListItem position, width, and visibilty
+*/
+function indicator(e) {	
+	activeListItem.style.left = e.offsetLeft + 'px';
+	activeListItem.style.width = e.offsetWidth + 'px';	
+	
+	activeListItem.classList.remove("fade-out");
+	activeListItem.classList.add("fade-in");
+}
 
-	// Get all the list items in the navigation
-	const listItems = document.querySelectorAll('#nav-primary li');
+/** 
+* Iterate over list items, add 'mouseenter' event listeners, and check for 'active' class
+*/
+listItems.forEach((listItem, index) => {
+	listItem.addEventListener('mouseenter', () => {
+		indicator(listItem);
+	});
 
-	// Initialize the active list item index as null
-	let activeIndex = null;
-		
+	/**  
+	* If the listItem has 'active' class, store its index in activeIndex
+	*/
+	if (listItem.classList.contains('active')) 
+	{
+		activeIndex = index;
+	}
+}); 
 
-	// Define indicator() function to update activeListItem position, width, and visibility
-	function indicator(e) {	
-		activeListItem.style.left = e.offsetLeft + 'px';
-		activeListItem.style.width = e.offsetWidth + 'px';	
-		
+
+/**  
+* Add 'mouseleave' event listener to navPrimary
+*/
+navPrimary.addEventListener('mouseleave', () => {
+
+	/** 
+	* If there's an active menu item, slide indicator position and width to this item
+	*/
+	if (activeIndex !== null) {
+		indicator(listItems[activeIndex]);
+	} 
+	/** 
+	* If there's no active list item, fade out indicator
+	*/
+	else {
+		activeListItem.classList.add("fade-out");
+		activeListItem.classList.remove("fade-in");
+	}
+}); 
+
+
+/** 
+* Check if there's an active list item on page load
+*/
+if (activeIndex !== null) {
+
+	/** 
+	* Make activeListItem initially hidden
+	*/
+	activeListItem.classList.add("fade-out");
+
+	/** 
+	* Set a 200ms timeout to update activeListItem position and width
+	*/
+	setTimeout(function()
+	{
+		activeListItem.style.width = listItems[activeIndex].offsetWidth + 'px';
+		activeListItem.style.left = listItems[activeIndex].offsetLeft + 'px';
+
+	}, 200);
+
+	/** 
+	* Set a 600ms timeout to make activeListItem visible
+	*/
+	setTimeout(function()
+	{
 		activeListItem.classList.remove("fade-out");
 		activeListItem.classList.add("fade-in");
-	}
 
-	// Iterate over list items, add 'mouseenter' event listeners, and check for 'active' class
-	listItems.forEach((listItem, index) => {
-	  	listItem.addEventListener('mouseenter', () => {
-			indicator(listItem);
-	  	});
+	}, 600);
 
-		// If the listItem has 'active' class, store its index in activeIndex
-		if (listItem.classList.contains('active')) 
-		{
-			activeIndex = index;
-		}
-	}); 
-	
-
-	// Add 'mouseleave' event listener to navPrimary
-	navPrimary.addEventListener('mouseleave', () => {
-		
-		// If there's an active list item, update activeListItem position and width, and make it visible
-	  	if (activeIndex !== null) {
-			indicator(listItems[activeIndex]);
-	  	} 
-		// If there's no active list item, hide activeListItem
-		else {
-			activeListItem.classList.add("fade-out");
-			activeListItem.classList.remove("fade-in");
-		}
-	}); 
-		
-		
-	// Check if there'fs an active list item at page load
-	if (activeIndex !== null) {
-		
-		// Make activeListItem initially hidden
-		activeListItem.classList.add("fade-out");
-		// activeListItem.classList.remove("fade-in");
-		
-		// Set a 200ms timeout to update activeListItem position and width
-		setTimeout(function()
-		{
-			activeListItem.style.width = listItems[activeIndex].offsetWidth + 'px';
-			activeListItem.style.left = listItems[activeIndex].offsetLeft + 'px';
-			
-		}, 200);
-		
-		// Set a 600ms timeout to make activeListItem visible
-		setTimeout(function()
-		{
-			// activeListItem.style.opacity = 1;
-			activeListItem.classList.remove("fade-out");
-			activeListItem.classList.add("fade-in");
-			
-		}, 600);
-		
-	}
-	
+}
